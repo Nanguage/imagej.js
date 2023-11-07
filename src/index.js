@@ -1710,6 +1710,7 @@ window.onImageJInitialized = async () => {
       javaBytesToArrayBuffer,
       saveImage,
       openImage,
+      loadContentFromUrl,
       addMenuItem
     );
   }

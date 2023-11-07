@@ -8,6 +8,7 @@ export async function setupImJoyAPI(
   javaBytesToArrayBuffer,
   saveImage,
   openImage,
+  loadContentFromUrl,
   addMenuItem
 ) {
   if (!api) {
@@ -36,6 +37,16 @@ export async function setupImJoyAPI(
       loader.style.display = "block";
       try {
         await openImage(imagej, path);
+      } catch (e) {
+        throw e;
+      } finally {
+        loader.style.display = "none";
+      }
+    },
+    async openUrl(url) {
+      loader.style.display = "block";
+      try {
+        await loadContentFromUrl(imagej, url);
       } catch (e) {
         throw e;
       } finally {
